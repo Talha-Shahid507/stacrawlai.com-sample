@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>StackCrawlAI — AI-Powered Web Crawler & Scraper</title>
+  <meta name="description" content="Extract any web data with AI. LLM-ready structured output, real-time crawling, GitHub-friendly export. Built for 2026."/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚡</text></svg>"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">⚡</div>
+    StackCrawl<span style="color:var(--accent)">AI</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="pages/features.html">Features</a></li>
+    <li><a href="pages/pricing.html">Pricing</a></li>
+    <li><a href="pages/docs.html">Docs</a></li>
+    <li><a href="pages/blog.html">Blog</a></li>
+    <li><a href="pages/contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="pages/login.html" class="btn btn-ghost">Log in</a>
+    <a href="pages/signup.html" class="btn btn-primary">Get Started →</a>
+  </div>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="pages/features.html">Features</a>
+  <a href="pages/pricing.html">Pricing</a>
+  <a href="pages/docs.html">Docs</a>
+  <a href="pages/blog.html">Blog</a>
+  <a href="pages/contact.html">Contact</a>
+  <a href="pages/login.html">Log in</a>
+  <a href="pages/signup.html" class="btn btn-primary" style="margin-top:0.5rem">Get Started →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">
+      <span class="badge badge-accent">✦ Now with Agentic Crawler v3.0</span>
+    </div>
+    <h1 class="fade-up delay-1">
+      Extract Web Data<br/>
+      <span class="gradient-text">At Intelligence Scale</span>
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      StackCrawlAI turns any website into clean, structured data — instantly.
+      Powered by LLM-native extraction, adaptive crawling, and real-time pipelines.
+    </p>
+    <div class="url-demo fade-up delay-2">
+      <span class="url-icon">🌐</span>
+      <input class="url-input" type="text" value="https://example.com/products" placeholder="Enter any URL..."/>
+      <button class="url-btn">Crawl</button>
+    </div>
+    <div class="hero-actions fade-up delay-3">
+      <a href="pages/signup.html" class="btn btn-primary btn-lg">Start Free — No Card Needed</a>
+      <a href="pages/docs.html" class="btn btn-outline btn-lg">View Docs</a>
+    </div>
+    <div class="hero-stats fade-up delay-3">
+      <div class="stat-item">
+        <div class="stat-num" data-count="2.4" data-suffix="B+">0</div>
+        <div class="stat-label">Pages Crawled</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="98" data-suffix="%">0</div>
+        <div class="stat-label">Uptime SLA</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="40" data-suffix="k+">0</div>
+        <div class="stat-label">Developers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="150" data-suffix="ms">0</div>
+        <div class="stat-label">Avg. Response</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS STRIP -->
+<div style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 0;background:var(--surface);position:relative;z-index:1;">
+  <div class="container">
+    <p style="text-align:center;font-size:0.75rem;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem;">Trusted by teams at</p>
+    <div style="display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;align-items:center;opacity:0.5;filter:grayscale(1);">
+      <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;">Vercel</span>
+      <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;">Stripe</span>
+      <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;">Notion</span>
+      <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;">Linear</span>
+      <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;">Supabase</span>
+      <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;">Railway</span>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features-section reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge badge-purple" style="margin-bottom:1rem;">Features</span>
+      <h2>Everything you need to<br/>crawl smarter</h2>
+      <p class="section-sub">Built for developers, researchers, and AI teams who need reliable, structured data at any scale.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon icon-green">🧠</div>
+        <div class="feature-title">LLM-Native Extraction</div>
+        <p class="feature-desc">Describe what you want in plain English. The AI understands page structure and extracts exactly what you need — no selectors required.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-purple">⚡</div>
+        <div class="feature-title">Async Multi-Page Crawler</div>
+        <p class="feature-desc">Crawl thousands of pages concurrently with smart rate limiting, retries, and checkpoint recovery for large-scale jobs.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-blue">📦</div>
+        <div class="feature-title">Structured JSON & Markdown</div>
+        <p class="feature-desc">Get clean Markdown for RAG pipelines or typed JSON schemas — ready to drop into Pinecone, Weaviate, or your own vector DB.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-amber">🔐</div>
+        <div class="feature-title">Stealth & Proxy Support</div>
+        <p class="feature-desc">Bypass bot detection with browser fingerprinting control, residential proxy rotation, and human-like interaction simulation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-red">🔄</div>
+        <div class="feature-title">Real-Time Webhooks</div>
+        <p class="feature-desc">Stream extracted data directly to your endpoint the moment it's ready. No polling. No waiting. Just data flowing where you need it.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-pink">📊</div>
+        <div class="feature-title">Visual Dashboard</div>
+        <p class="feature-desc">Monitor all your crawl jobs, view analytics, manage API keys, and configure schedules — all from a clean, fast dashboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CODE DEMO -->
+<section class="code-section">
+  <div class="container">
+    <div class="code-grid">
+      <div class="reveal">
+        <span class="badge badge-accent" style="margin-bottom:1.5rem;">Developer First</span>
+        <h2>Three lines to extract<br/>anything</h2>
+        <p style="color:var(--muted);margin:1rem 0 1.5rem;line-height:1.8;">Our Python & Node.js SDKs make it trivial to get started. One API call handles crawling, rendering, extraction, and structured output.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="pages/docs.html" class="btn btn-primary">Read the Docs</a>
+          <a href="pages/signup.html" class="btn btn-ghost">Get API Key</a>
+        </div>
+      </div>
+      <div class="code-block reveal">
+        <div class="code-header">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <span class="code-filename">example.py</span>
+          <button class="copy-btn btn btn-ghost" style="margin-left:auto;padding:0.25rem 0.75rem;font-size:0.75rem;">Copy</button>
+        </div>
+        <div class="code-body">
+          <span class="c-p">from</span> <span class="c-b">stackcrawlai</span> <span class="c-p">import</span> Crawler<br/>
+          <br/>
+          <span class="c-g"># Initialize with your API key</span><br/>
+          crawler <span class="c-a">=</span> Crawler(<span class="c-o">api_key</span><span class="c-a">=</span><span class="c-y">"sk-..."</span>)<br/>
+          <br/>
+          <span class="c-g"># Describe what you want in plain English</span><br/>
+          result <span class="c-a">=</span> crawler.<span class="c-b">extract</span>(<br/>
+          &nbsp;&nbsp;url<span class="c-a">=</span><span class="c-y">"https://shop.example.com"</span>,<br/>
+          &nbsp;&nbsp;prompt<span class="c-a">=</span><span class="c-y">"Get all product names, prices, ratings"</span>,<br/>
+          &nbsp;&nbsp;output<span class="c-a">=</span><span class="c-y">"json"</span>,<br/>
+          &nbsp;&nbsp;depth<span class="c-a">=</span><span class="c-o">3</span><br/>
+          )<br/>
+          <br/>
+          <span class="c-g"># Clean structured data, instantly</span><br/>
+          <span class="c-b">print</span>(result.<span class="c-b">data</span>)<span class="c-g">  # 847 products extracted ✓</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge badge-amber" style="margin-bottom:1rem;">Testimonials</span>
+      <h2>Loved by data teams</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"We replaced our entire scraping infrastructure with StackCrawlAI. What used to take 3 engineers to maintain now runs automatically. Our RAG pipeline quality jumped 40%."</p>
+        <div class="testimonial-author">
+          <div class="avatar" style="background:linear-gradient(135deg,#00f5a0,#00bfff);color:#050508;">AR</div>
+          <div class="author-info">
+            <div class="name">Alex Reibman</div>
+            <div class="role">CTO at DataSphere</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Finally an AI crawler that actually understands page content. We're extracting structured competitive intelligence from 500+ websites daily without a single line of CSS selector code."</p>
+        <div class="testimonial-author">
+          <div class="avatar" style="background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;">SM</div>
+          <div class="author-info">
+            <div class="name">Sarah Mitchell</div>
+            <div class="role">Head of AI, Nexus Labs</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The webhook streaming changed everything for us. Our data pipeline is real-time now. And the stealth mode handles sites that used to block every other tool we tried."</p>
+        <div class="testimonial-author">
+          <div class="avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444);color:#050508;">JK</div>
+          <div class="author-info">
+            <div class="name">James Kim</div>
+            <div class="role">Lead Engineer, Orbital AI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section reveal">
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="badge badge-accent" style="margin-bottom:1.5rem;">Get Started</span>
+    <h2>Ready to crawl<br/>at AI speed?</h2>
+    <p class="cta-sub">Start free with 10,000 pages/month. No credit card required. Scale when you need to.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="pages/signup.html" class="btn btn-primary btn-lg">Create Free Account</a>
+      <a href="pages/contact.html" class="btn btn-outline btn-lg">Talk to Sales</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="display:inline-flex;">
+          <div class="nav-logo-icon">⚡</div>
+          StackCrawl<span style="color:var(--accent)">AI</span>
+        </a>
+        <p>AI-powered web crawling and data extraction built for LLMs, RAG pipelines, and agentic workflows.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="pages/features.html">Features</a></li>
+          <li><a href="pages/pricing.html">Pricing</a></li>
+          <li><a href="pages/docs.html">Documentation</a></li>
+          <li><a href="pages/blog.html">Changelog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Developers</h4>
+        <ul>
+          <li><a href="pages/docs.html">API Reference</a></li>
+          <li><a href="pages/docs.html">SDKs</a></li>
+          <li><a href="pages/blog.html">Blog</a></li>
+          <li><a href="#">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="pages/contact.html">Contact</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Status</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 StackCrawlAI. All rights reserved.</span>
+      <span style="font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--muted);">v3.0.0 · MIT License</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
