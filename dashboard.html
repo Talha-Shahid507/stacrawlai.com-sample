@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Dashboard — StackCrawlAI</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo"><div class="nav-logo-icon">⚡</div>StackCrawl<span style="color:var(--accent)">AI</span></a>
+  <ul class="nav-links">
+    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+    <li><a href="docs.html">Docs</a></li>
+    <li><a href="pricing.html">Upgrade</a></li>
+  </ul>
+  <div class="nav-cta">
+    <span style="font-size:0.875rem;color:var(--muted);font-family:'DM Mono',monospace;">Free Plan</span>
+    <a href="pricing.html" class="btn btn-primary">Upgrade →</a>
+  </div>
+</nav>
+
+<div class="container dashboard-section">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;">
+    <div>
+      <div style="font-size:0.8rem;color:var(--muted);font-family:'DM Mono',monospace;margin-bottom:0.25rem;">Welcome back</div>
+      <h1 style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.75rem;">Ahmad's Workspace</h1>
+    </div>
+    <button class="btn btn-primary" onclick="showNewCrawlModal()">+ New Crawl Job</button>
+  </div>
+
+  <!-- Stats -->
+  <div class="dash-grid">
+    <div class="dash-card">
+      <div class="dash-card-label">Pages This Month</div>
+      <div class="dash-card-value" data-count="4821" style="color:var(--accent)">0</div>
+      <div class="dash-card-delta">↑ 12% from last month</div>
+    </div>
+    <div class="dash-card">
+      <div class="dash-card-label">Active Jobs</div>
+      <div class="dash-card-value" data-count="3" style="color:#a78bfa">0</div>
+      <div class="dash-card-delta">2 running · 1 queued</div>
+    </div>
+    <div class="dash-card">
+      <div class="dash-card-label">Quota Used</div>
+      <div class="dash-card-value" data-count="48" data-suffix="%" style="color:var(--accent3)">0</div>
+      <div class="dash-card-delta" style="color:var(--muted);">5,179 pages remaining</div>
+    </div>
+    <div class="dash-card">
+      <div class="dash-card-label">Avg. Speed</div>
+      <div class="dash-card-value" data-count="124" data-suffix="ms">0</div>
+      <div class="dash-card-delta">↓ 8ms faster</div>
+    </div>
+  </div>
+
+  <!-- Main panels -->
+  <div class="dash-main">
+    <!-- Jobs list -->
+    <div class="dash-panel">
+      <div class="dash-panel-header">
+        <div class="dash-panel-title">Recent Crawl Jobs</div>
+        <button class="btn btn-ghost" style="padding:0.3rem 0.75rem;font-size:0.75rem;">View all</button>
+      </div>
+      <ul class="job-list">
+        <li class="job-item">
+          <div>
+            <div class="job-name">Product Catalog Crawl</div>
+            <div class="job-url">https://shop.example.com</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:0.8rem;"><span class="status-dot status-running"></span>Running</div>
+            <div style="font-size:0.75rem;color:var(--muted);font-family:'DM Mono',monospace;">1,204 / 3,000</div>
+          </div>
+        </li>
+        <li class="job-item">
+          <div>
+            <div class="job-name">Docs Extraction Pipeline</div>
+            <div class="job-url">https://docs.competitor.io</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:0.8rem;"><span class="status-dot status-running"></span>Running</div>
+            <div style="font-size:0.75rem;color:var(--muted);font-family:'DM Mono',monospace;">847 / 2,100</div>
+          </div>
+        </li>
+        <li class="job-item">
+          <div>
+            <div class="job-name">News Aggregator</div>
+            <div class="job-url">https://news.site.com/tech</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:0.8rem;"><span class="status-dot status-queued"></span>Queued</div>
+            <div style="font-size:0.75rem;color:var(--muted);font-family:'DM Mono',monospace;">0 / 500</div>
+          </div>
+        </li>
+        <li class="job-item">
+          <div>
+            <div class="job-name">Price Monitor — Electronics</div>
+            <div class="job-url">https://store.amazon-clone.com</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:0.8rem;color:var(--accent);"><span class="status-dot" style="background:var(--accent)"></span>Done</div>
+            <div style="font-size:0.75rem;color:var(--muted);font-family:'DM Mono',monospace;">2,770 pages</div>
+          </div>
+        </li>
+        <li class="job-item">
+          <div>
+            <div class="job-name">Blog Content Scrape</div>
+            <div class="job-url">https://medium.com/@user</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:0.8rem;color:var(--accent);"><span class="status-dot" style="background:var(--accent)"></span>Done</div>
+            <div style="font-size:0.75rem;color:var(--muted);font-family:'DM Mono',monospace;">94 pages</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Chart + API Key -->
+    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+      <div class="dash-panel">
+        <div class="dash-panel-header">
+          <div class="dash-panel-title">Pages Crawled (7d)</div>
+        </div>
+        <div class="chart">
+          <div class="bar" style="height:40%;"></div>
+          <div class="bar" style="height:55%;"></div>
+          <div class="bar" style="height:35%;"></div>
+          <div class="bar" style="height:70%;"></div>
+          <div class="bar" style="height:90%;"></div>
+          <div class="bar" style="height:65%;"></div>
+          <div class="bar" style="height:80%;"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--muted);font-family:'DM Mono',monospace;margin-top:0.75rem;">
+          <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+        </div>
+      </div>
+
+      <div class="dash-panel">
+        <div class="dash-panel-header">
+          <div class="dash-panel-title">API Key</div>
+          <button class="btn btn-ghost" style="padding:0.3rem 0.75rem;font-size:0.75rem;" id="reveal-key">Reveal</button>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:0.75rem 1rem;font-family:'DM Mono',monospace;font-size:0.8rem;display:flex;justify-content:space-between;align-items:center;">
+          <span id="api-key-display">sk-••••••••••••••••••••••</span>
+          <button class="copy-btn btn btn-ghost" style="padding:0.2rem 0.6rem;font-size:0.7rem;" onclick="navigator.clipboard.writeText('sk-demo-key-123456789');showToast('API key copied!');">Copy</button>
+        </div>
+        <p style="font-size:0.75rem;color:var(--muted);margin-top:0.75rem;">Keep this secret. <a href="pricing.html" style="color:var(--accent);text-decoration:none;">Upgrade</a> to create multiple keys.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEW CRAWL MODAL -->
+<div id="modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:200;align-items:center;justify-content:center;">
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;width:100%;max-width:480px;margin:2rem;">
+    <h2 style="font-family:'Syne',sans-serif;font-size:1.25rem;margin-bottom:2rem;">New Crawl Job</h2>
+    <div class="form-group">
+      <label>Starting URL</label>
+      <input type="url" placeholder="https://example.com" id="modal-url"/>
+    </div>
+    <div class="form-group">
+      <label>Extraction Prompt (optional)</label>
+      <textarea placeholder="Extract all product names, prices, and descriptions..." style="min-height:80px;"></textarea>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <div class="form-group">
+        <label>Max Pages</label>
+        <input type="number" value="1000"/>
+      </div>
+      <div class="form-group">
+        <label>Depth</label>
+        <input type="number" value="3"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Output Format</label>
+      <select><option>JSON</option><option>Markdown</option><option>Both</option></select>
+    </div>
+    <div style="display:flex;gap:1rem;margin-top:0.5rem;">
+      <button class="btn btn-primary btn-lg" style="flex:1;justify-content:center;" onclick="startCrawl()">Start Crawl →</button>
+      <button class="btn btn-ghost btn-lg" style="justify-content:center;" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/main.js"></script>
+<script>
+function showNewCrawlModal() {
+  document.getElementById('modal').style.display = 'flex';
+}
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+function startCrawl() {
+  const url = document.getElementById('modal-url').value;
+  if (!url) { showToast('⚠️ Please enter a URL'); return; }
+  closeModal();
+  showToast('✅ Crawl job started! Check the jobs list.');
+}
+document.getElementById('reveal-key').addEventListener('click', function() {
+  const el = document.getElementById('api-key-display');
+  if (el.textContent.includes('•')) {
+    el.textContent = 'sk-demo-key-123456789abcdef';
+    this.textContent = 'Hide';
+  } else {
+    el.textContent = 'sk-••••••••••••••••••••••';
+    this.textContent = 'Reveal';
+  }
+});
+</script>
+</body>
+</html>

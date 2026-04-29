@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Documentation — StackCrawlAI</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo"><div class="nav-logo-icon">⚡</div>StackCrawl<span style="color:var(--accent)">AI</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li><li><a href="features.html">Features</a></li>
+    <li><a href="pricing.html">Pricing</a></li><li><a href="docs.html" class="active">Docs</a></li>
+    <li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="login.html" class="btn btn-ghost">Log in</a>
+    <a href="signup.html" class="btn btn-primary">Get Started →</a>
+  </div>
+  <button class="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html">Home</a><a href="features.html">Features</a>
+  <a href="pricing.html">Pricing</a><a href="docs.html">Docs</a>
+  <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+</div>
+
+<div class="container">
+  <div class="docs-layout">
+    <!-- SIDEBAR -->
+    <aside class="docs-sidebar">
+      <div class="docs-nav-section">
+        <h5>Getting Started</h5>
+        <ul>
+          <li><a href="#intro" class="active">Introduction</a></li>
+          <li><a href="#quickstart">Quick Start</a></li>
+          <li><a href="#install">Installation</a></li>
+          <li><a href="#auth">Authentication</a></li>
+        </ul>
+      </div>
+      <div class="docs-nav-section">
+        <h5>Core API</h5>
+        <ul>
+          <li><a href="#crawl">Crawl Endpoint</a></li>
+          <li><a href="#extract">Extract Endpoint</a></li>
+          <li><a href="#jobs">Jobs API</a></li>
+          <li><a href="#webhooks">Webhooks</a></li>
+        </ul>
+      </div>
+      <div class="docs-nav-section">
+        <h5>SDKs</h5>
+        <ul>
+          <li><a href="#python">Python SDK</a></li>
+          <li><a href="#node">Node.js SDK</a></li>
+          <li><a href="#cli">CLI Tool</a></li>
+        </ul>
+      </div>
+      <div class="docs-nav-section">
+        <h5>Advanced</h5>
+        <ul>
+          <li><a href="#stealth">Stealth Mode</a></li>
+          <li><a href="#schema">Custom Schemas</a></li>
+          <li><a href="#schedule">Scheduling</a></li>
+          <li><a href="#limits">Rate Limits</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="docs-content">
+      <span class="badge badge-accent" style="margin-bottom:1rem;">v3.0 Docs</span>
+      <h1 style="font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;margin-bottom:0.5rem;" id="intro">StackCrawlAI Documentation</h1>
+      <p>Welcome to StackCrawlAI — the AI-powered web crawler built for LLMs, RAG pipelines, and agentic workflows. This guide covers everything from your first API call to advanced multi-page crawls.</p>
+
+      <div style="background:rgba(0,245,160,0.06);border:1px solid rgba(0,245,160,0.2);border-radius:var(--radius);padding:1rem 1.25rem;margin:1.5rem 0;">
+        <strong style="color:var(--accent);font-size:0.875rem;">✦ What's new in v3.0</strong>
+        <p style="margin-top:0.5rem;font-size:0.875rem;">Agentic Crawler with adaptive stopping, Prefetch Mode (10× faster URL discovery), crash-recovery checkpoints, and new stealth fingerprinting engine.</p>
+      </div>
+
+      <h2 id="quickstart">Quick Start</h2>
+      <p>Get your first crawl running in under 2 minutes:</p>
+
+      <div class="code-block" style="margin:1.25rem 0;">
+        <div class="code-header">
+          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+          <span class="code-filename">quickstart.py</span>
+          <button class="copy-btn btn btn-ghost" style="margin-left:auto;padding:0.2rem 0.6rem;font-size:0.7rem;">Copy</button>
+        </div>
+        <div class="code-body">
+          <span class="c-p">from</span> <span class="c-b">stackcrawlai</span> <span class="c-p">import</span> Crawler<br/>
+          <br/>
+          crawler <span class="c-a">=</span> Crawler(<span class="c-o">api_key</span><span class="c-a">=</span><span class="c-y">"sk-your-key-here"</span>)<br/>
+          <br/>
+          result <span class="c-a">=</span> crawler.<span class="c-b">extract</span>(<br/>
+          &nbsp;&nbsp;url<span class="c-a">=</span><span class="c-y">"https://news.ycombinator.com"</span>,<br/>
+          &nbsp;&nbsp;prompt<span class="c-a">=</span><span class="c-y">"Extract all post titles, scores, and author names"</span><br/>
+          )<br/>
+          <br/>
+          <span class="c-b">print</span>(result.<span class="c-b">data</span>)  <span class="c-g"># structured JSON ✓</span>
+        </div>
+      </div>
+
+      <h2 id="install">Installation</h2>
+      <p>Install the Python SDK via pip:</p>
+
+      <div class="code-block" style="margin:1rem 0;">
+        <div class="code-header">
+          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+          <span class="code-filename">terminal</span>
+          <button class="copy-btn btn btn-ghost" style="margin-left:auto;padding:0.2rem 0.6rem;font-size:0.7rem;">Copy</button>
+        </div>
+        <div class="code-body">
+          <span class="c-a">$</span> pip install stackcrawlai<br/>
+          <span class="c-g"># or for Node.js:</span><br/>
+          <span class="c-a">$</span> npm install @stackcrawlai/sdk
+        </div>
+      </div>
+
+      <h2 id="auth">Authentication</h2>
+      <p>All API requests require an API key. You can generate one in your <a href="dashboard.html" style="color:var(--accent);text-decoration:none;">Dashboard → API Keys</a>.</p>
+      <p>Include it in the <code>Authorization</code> header or pass it to the SDK constructor:</p>
+
+      <div class="code-block" style="margin:1rem 0;">
+        <div class="code-header"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><span class="code-filename">HTTP header</span></div>
+        <div class="code-body">
+          Authorization: Bearer sk-your-api-key
+        </div>
+      </div>
+
+      <h2 id="crawl">Crawl Endpoint</h2>
+      <p>The crawl endpoint follows links from a starting URL and processes the entire site or a section of it.</p>
+
+      <div class="endpoint">
+        <span class="method method-post">POST</span>
+        <span class="endpoint-path">/v1/crawl</span>
+        <span class="endpoint-desc">Start a crawl job</span>
+      </div>
+      <div class="endpoint">
+        <span class="method method-get">GET</span>
+        <span class="endpoint-path">/v1/crawl/{job_id}</span>
+        <span class="endpoint-desc">Get job status & results</span>
+      </div>
+      <div class="endpoint">
+        <span class="method method-delete">DELETE</span>
+        <span class="endpoint-path">/v1/crawl/{job_id}</span>
+        <span class="endpoint-desc">Cancel a crawl job</span>
+      </div>
+
+      <h3>Parameters</h3>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:1rem 0;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.8rem;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);background:var(--bg);">
+              <th style="text-align:left;padding:0.75rem 1rem;font-family:'DM Mono',monospace;font-weight:500;color:var(--muted);">Parameter</th>
+              <th style="text-align:left;padding:0.75rem 1rem;font-family:'DM Mono',monospace;font-weight:500;color:var(--muted);">Type</th>
+              <th style="text-align:left;padding:0.75rem 1rem;font-family:'DM Mono',monospace;font-weight:500;color:var(--muted);">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:0.75rem 1rem;"><code>url</code></td>
+              <td style="padding:0.75rem 1rem;color:var(--muted);">string*</td>
+              <td style="padding:0.75rem 1rem;color:var(--muted);">Starting URL for the crawl</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:0.75rem 1rem;"><code>depth</code></td>
+              <td style="padding:0.75rem 1rem;color:var(--muted);">integer</td>
+              <td style="padding:0.75rem 1rem;color:var(--muted);">Max crawl depth (default: 3)</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:0.75rem 1rem;"><code>max_pages</code></td>
+              <td style="padding:0.75rem 1rem;color:var(--muted);">integer</td>
+              <td style="padding:0.75rem 1rem;color:var(--muted);">Max pages to crawl (default: 1000)</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:0.75rem 1rem;"><code>output</code></td>
+              <td style="padding:0.75rem 1rem;color:var(--muted);">string</td>
+              <td style="padding:0.75rem 1rem;color:var(--muted);">"markdown" | "json" | "html"</td>
+            </tr>
+            <tr>
+              <td style="padding:0.75rem 1rem;"><code>stealth</code></td>
+              <td style="padding:0.75rem 1rem;color:var(--muted);">boolean</td>
+              <td style="padding:0.75rem 1rem;color:var(--muted);">Enable stealth mode (Pro+)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="python">Python SDK</h2>
+      <p>The Python SDK wraps the REST API with async support, automatic retries, and Pydantic models.</p>
+
+      <div class="code-block" style="margin:1rem 0;">
+        <div class="code-header"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><span class="code-filename">async_example.py</span>
+        <button class="copy-btn btn btn-ghost" style="margin-left:auto;padding:0.2rem 0.6rem;font-size:0.7rem;">Copy</button>
+        </div>
+        <div class="code-body">
+          <span class="c-p">import</span> asyncio<br/>
+          <span class="c-p">from</span> <span class="c-b">stackcrawlai</span> <span class="c-p">import</span> AsyncCrawler<br/>
+          <br/>
+          <span class="c-p">async def</span> <span class="c-b">main</span>():<br/>
+          &nbsp;&nbsp;<span class="c-p">async with</span> AsyncCrawler(<span class="c-o">api_key</span><span class="c-a">=</span><span class="c-y">"sk-..."</span>) <span class="c-p">as</span> crawler:<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;job <span class="c-a">=</span> <span class="c-p">await</span> crawler.<span class="c-b">crawl</span>(<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url<span class="c-a">=</span><span class="c-y">"https://docs.example.com"</span>,<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;depth<span class="c-a">=</span><span class="c-o">4</span>, stealth<span class="c-a">=</span><span class="c-p">True</span><br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;)<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="c-g"># Stream results as they come in</span><br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="c-p">async for</span> page <span class="c-p">in</span> job.<span class="c-b">stream</span>():<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-b">print</span>(page.<span class="c-b">url</span>, <span class="c-y">f"→ {len(page.markdown)} chars"</span>)<br/>
+          <br/>
+          asyncio.<span class="c-b">run</span>(main())
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:2rem;">
+        <a href="pricing.html" class="btn btn-primary">Start Free</a>
+        <a href="contact.html" class="btn btn-ghost">Get Help</a>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
